@@ -1,5 +1,5 @@
 from flask import Flask
-from rediss import Redis,RedissError
+from redis import Redis,RedisError
 import os
 import socket
 
@@ -21,9 +21,9 @@ def hello():
 
     return html.format(
            name=os.getenv("NAME","world"),
-           hostname=socket.gethostsname(),
+           hostname=socket.gethostname(),
            visits=visits    
     )
 
 if __name__ == "__main__":
-    app.run(hosts="0.0.0.0", port=80)
+    app.run(host="0.0.0.0", port=80)
